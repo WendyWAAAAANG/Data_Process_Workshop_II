@@ -1,0 +1,89 @@
+
+{% load static %} 
+<!doctype html> 
+<html> 
+<head>
+    <meta charset="utf-8">
+    <title>Search</title>
+    <!--include the css file of boostrop -->
+    <link rel="stylesheet" href="{% static '/root/MyPyspark/Gutenberg/Django/dpwII_project/static/minisearch/bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+	<center>
+		<h1 class="display-1">Text Search</h1>
+		<div>
+		<h2 class="h3 mb-3 font-weight-normal">Where are the books:</h2>
+		</div>
+		<div class="row">
+                          
+			  <div class="col-lg-4">
+				  <h4>From Kaggle</h4>
+				  <p><a href="https://www.kaggle.com/paulrohan2020/huge-books-in-plain-text-for-train-language-models" class="btn btn-primary" role="button">Books in plain text for train language models</a></p>
+			  </div>
+                          <div class="col-lg-4">
+                          </div>
+			  <div class="col-lg-4">
+				  <h4>Crawl from website</h4>
+				  <p><a href="https://www.wuxiaworld.com/novel/absolute-resonance" class="btn btn-primary" role="button">Kong fu novels</a></p>
+			  </div>
+                          
+
+	        </div>
+                {% block body_block %}
+                <div class="row my-5"></div>
+                <center> 
+
+                 {% include "/root/MyPyspark/Gutenberg/Django/dpwII_project/templates/minisearch/pic.html" %}
+                 {% include "/root/MyPyspark/Gutenberg/Django/dpwII_project/templates/minisearch/margin.html" %}
+                 {% endblock %}
+
+<!-- include jquery.js and popper.js -->
+    <script src="{% static '/root/MyPyspark/Gutenberg/Django/dpwII_project/static/minisearch/jquery/jquery-3.5.1.js' %}"></script>
+    <script src="{% static '/root/MyPyspark/Gutenberg/Django/dpwII_project/static/minisearch/popper/popper-1.14.4.js' %}"></script>
+    <!-- import bootstrap js -->
+    <script src="{% static '/root/MyPyspark/Gutenberg/Django/dpwII_project/static/minisearch/bootstrap/js/bootstrap.min.js' %}"></script>
+
+<div class="col-lg-4"></div>
+<div class="col-lg-4">
+<nav class="navbar navbar-light bg-light"> 
+  <center>
+  <form class="form-inline"> 
+    <input  
+     class="form-control mr-sm-2"  
+     type="search" placeholder="Keyword"  
+     aria-label="Keyword" 
+     name = 'keyword' 
+     value = ""> 
+     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> 						  
+  </form> 
+
+  </center> 
+</nav>
+</div>
+<div class="col-lg-4"></div>
+
+
+{% if results %} 
+      <div class="txtCentrado margenSup20 grisDC"> 
+          <h3>We found {{ count }} result{{ count|pluralize }} for your
+search "<i>{{ search_term }}</i>", showing top hits according to TF-IDF 
+score: </h3> 
+	   </div> 
+	       <div class="searchresults"> 
+	           {% for mytuple in results %} 
+			    <div class="images"> 
+		                <img src="{% static "/root/MyPyspark/Gutenberg/Django/dpwII_project/static/minisearch/img/p1.png" %}"width="20" height="20""hspace="5">{{ mytuple.0 }}  
+				    <img src="{% static "/root/MyPyspark/Gutenberg/Django/dpwII_project/static/minisearch/img/p3.png" %}"width="20" height="20""hspace="5">{{ mytuple.1 }} 				            
+			       </div>
+                  
+			       <p></p> 			         
+	              {% endfor %} 
+	           </div> 
+{%elif not search_term %} 
+    <h3>Insert your search here.</h3> 
+{%elif not results %} 
+    <p>No results found.</p> 
+{% endif %} 
+</center>
+</body>
+</html> 

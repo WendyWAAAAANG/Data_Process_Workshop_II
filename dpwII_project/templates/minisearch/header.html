@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+
+<!-- include jquery.js and popper.js -->
+<script src="{% static 'jquery/jquery-3.5.1.js' %}"></script>
+<script src="{% static 'popper/popper-1.14.4.js' %}"></script>
+<!-- import bootstrap js -->
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>
+NWHoogle
+</title>
+<link rel="shortcut icon" href="./index_files/googleg.png">
+<style>
+.writebox {
+	background-color:#fff;
+	border-radius:40px;
+	padding:5px;
+	width:600px;
+	height:36px;
+	border:1px solid #ccc;
+	transition:box-shadow 0.4s;
+}
+.writebox:hover {
+	box-shadow:0 0 10px #CCC;
+}
+.lnk {
+	color:#000;
+    text-decoration:none;
+	font-size:12.5px;
+}
+.lnk:hover {
+	color:#CCC;
+}
+
+a {
+	color:#000;
+}
+a:hover {
+	color:#CCC;
+}
+
+input {
+	outline:none;
+}
+
+button{
+	outline:none;
+	border-radius:2px;
+	background:#1E90FF;
+	border:none;
+	padding:8px;
+	padding-left:15px;
+	padding-right:15px;
+	color:#F8F8FF;
+	font-size:12px;
+}
+
+.selbtn {
+	border:none;
+	padding:8px;
+	padding-left:15px;
+	padding-right:15px;
+	border-radius:5px;
+	background-color:#efefef;
+	cursor:pointer;
+}
+.selbtn:hover {
+	box-shadow:1px 1px 1px #ccc;
+}
+</style>
+</head>
+<body>
+
+<table align=right colspan="1">
+	<tr>
+		<td width="95px" align="left">
+			<a class="lnk" href="https://mail.google.com/mail/?tab=wm&ogbl">Gmail</a>
+			&nbsp;&nbsp;
+			<a class="lnk" href="https://www.google.com/imghp?hl=zh-CN&tab=wi&ogbl">Images</a>
+		</td>
+		<td width="35px" height="15px">
+			<img src="{% static 'minisearch/images/more.png' %}" onclick="" width="16px"/>
+		</td>
+		<td width="73px">
+			<button onclick="location.href='https://accounts.google.com/ServiceLogin?hl=zh-CN&passive=true&continue=https://www.google.com/'">&nbsp;Log in&nbsp;</button>
+		</td>
+	</tr>
+</table>
+<br>
+<center style="margin-top:11%;">
+<img src="{% static 'minisearch/images/mylogo.png' %}" style = "height:100px;"/>
+<br><br>
+
+<form class = "writebox" action = "{% url 'minisearch:result_view' %}" method = "post">
+	{% csrf_token %}
+		<table colspan="1" width="100%" cellspacing="3" cellpadding="0">
+			<tr width="100%" align="left" colspan=0>
+				<td>
+					<img src="{% static 'minisearch/images/searchicon.png' %}" style="height:27px;"/>
+				</td>
+				<td width="95%">
+					<input
+					type="search" 
+					autofocus autocomplete="off" name="keyword" style="width:100%;height:150%;border:0;padding:10px;background:#fff;border-radius:15px;" 
+					value = ""> 
+				</td>
+				<td>
+					<img src="{% static 'minisearch/images/voiceicon.png' %}" style="height:27px;"/>
+				</td>
+			</tr>
+		</table>
+		<br><br>
+		<button type="submit" class="btn btn-primary">Search NWHoogle</button>
+</form>
+
+<br>
+
+	{% comment %} <div class="search" >
+		<div class="s-bar">
+			<form method="POST">
+				{{ form }}
+				{% csrf_token %}
+				<input type="submit"
+				autocomplete="on"
+				contenteditable="true"
+				spellcheck="true"
+				value="Search NWHoogle" />
+			</form>
+		</div>
+	</div> {% endcomment %}
+
+{% comment %} <div>
+	<button class="btn btn-outline-success my-2 my-sm-0" onclick="{% url 'result_view' %}" type="submit">Search</button> 
+	<!--input type="button" class="selbtn" onclick="location.href='https://www.google.com/'" value="Search">&nbsp;
+	<input type="button" class="selbtn" onclick="location.href='https://www.google.com/doodles/'" value="手气不错"-->
+</div> {% endcomment %}
+
+<!--br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br-->
+
+
+</center>
+</body>
+</html>

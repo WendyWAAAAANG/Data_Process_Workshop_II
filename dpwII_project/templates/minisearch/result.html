@@ -1,0 +1,189 @@
+{% load static %}
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NWHoogle Books Searcher</title>
+<link href="{% static 'minisearch/css/style_result.css' %}" rel="stylesheet" type="text/css" media="all"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="Flat Search Box Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+element.style {
+	width: 97%;
+	position: relative;
+	float: right;
+	font-style: normal;
+	font-family: fantasy;
+}
+.alert-secondary {
+	color: #383d41;
+	background-color: #e2e3e5;
+	border-color: #d6d8db;
+	font-size: 25px;
+}
+.alert-info {
+	color: #0c5460;
+	background-color: #d1ecf1;
+	border-color: #bee5eb;
+	font-size: 25px;
+}
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+	font-size: 25px;
+}
+</style>
+</head>
+
+
+
+<body>
+<div id="id1" class="p-3 mb-2 bg-dark text-white">
+	<div id="l" style="width:40%;position:relative;float:left;">
+		<a href = "{% url 'minisearch:header_view' %}"><img src = "{% static 'minisearch/images/shouye.png' %}" style="top:300px;left:0px;height:100px;weight:300px" method = "get"></a>
+	</div>
+	<div id="id3" class="s-bar" >
+		<form class="form-inline"> 
+			{% comment %} <input  
+			 class="form-control mr-sm-2"  
+			 type="search" placeholder="Keyword"  
+			 aria-label="Keyword" 
+			 name = 'keyword' 
+			 value = ""> 
+			 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> {% endcomment %}
+			 <div id="m" style="width:100%;">
+				<div id="r" style="width:97%;position:relative;float:right;">
+			<h1 align="center" style="color:#FFFFFF ; font-size:50px; font-family: fantasy;position:relative;left:-55px;top:-3px">NWHoogle Books Searcher</h1>
+				</div>
+			</div>
+			 {% comment %} <input
+			 type="search" placeholder="Keyword"  
+			 aria-label="Keyword" 
+			 name = 'keyword'  
+			 autocomplete="on" 
+			 contenteditable="true" 
+			 spellcheck="true" 
+			 value="" />
+			 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>  {% endcomment %}
+		</form>
+	    {% comment %} <form method="POST" autocomplete="on" >
+		{{ form }}
+		{% csrf_token %}
+		<input type="submit"  autocomplete="on" contenteditable="true" spellcheck="true" value="Find a Book" />
+		   <small id="emailHelp" class="form-text text-muted">Go and Find the Interest of Reading</small>
+	    </form> {% endcomment %}
+	</div>
+</div>
+<div class="container-fluid"style="height:100%;weight:100%" >
+	<div style="width:280px;height:100%;position:relative;float:left">
+		<div class="alert alert-secondary" role="alert">
+			<center>About Us</center>
+		</div>
+		<font size="4">NING&nbsp;Jiayi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2030026110</font><br/>
+		<font size="4">WANG&nbsp;Ruoxin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2030026150</font><br/>
+		<font size="4">HOU&nbsp;AilING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2030026052</font><br/>
+		<br><br>
+		<div class="alert alert-danger" role="alert">
+			<center>Features</center>
+		</div>
+<ul class="list-group">
+  <li>
+	<div class="card text-white bg-success mb-3">
+		<div class="card-header"><b>{{title1}}</b></div>
+		<div class="card-body">
+			<p id="cg1" class="card-text">{{explanation |safe}}</p>
+		</div>
+		</div>
+  </li>
+  <li>	
+		<div class="card text-white bg-warning mb-3">
+		<div class="card-header"><b>{{title2}}</b></div>
+	
+		<div class="card-body">
+			<p id="cg2" class="card-text">{{synonyms |safe}}</p>
+		</div>
+		</div>
+  </li>
+</ul>
+		<br><br>
+		<div class="alert alert-info" role="alert">
+			<center>Supports</center>
+		</div>
+		<center><img id="logo1" src = "{% static 'minisearch/images/django.jpg' %}" style="height:70px;weight:700px;background-color: transparent;border: none" ></center><br>
+		<center><img id="logo2" src = "{% static 'minisearch/images/hadoop.jpg' %}" style="height:70px;weight:700px" ></center><br>
+	</div>
+	<div id="middle" style="width:1px;height:150%;position:relative;float:left;left:40px;background:darkgray;" >
+		<p></p>
+	</div>
+
+
+<div  id="frameContent" style="width:65%;height:94%;position:relative;float:left;left:65px;">
+	<div class="alert alert-warning alert-dismissible fade show" role="alert"></div>
+		{% if results %}
+			<p>Time Cost: <strong><u>{{time |safe}}s</u></strong>
+				<br>We found <strong>{{ count }} result{{ count|pluralize }}</strong>
+				 for your search "<i>{{ search_term }}</i>"</u></strong></p>
+	<div  style="weight:100%;height:90%;overflow-pageINdex:auto;overflow-y:auto;">
+			<p>{{ final|safe }}</p> 			         
+		{% elif not results %} 
+    		<p>No results found.</p>
+		{% endif %} 
+	</div>
+</div>
+	{% comment %} <div id="middle1" style="width:1px;height:100%;position:relative;float:left;left:100px;background:darkgray;" >
+		<p></p>
+	</div> {% endcomment %}
+{% comment %} 
+<div id="right"  style="width:300px;height:95%;position:relative;float:left;left:150px">
+	<div class="card text-white bg-success mb-3">
+	<div class="card-header"><b>{{title1}}</b></div>
+	<div class="card-body">
+		<p id="cg1" class="card-text">{{explanation |safe}}</p>
+	</div>
+	</div>
+	<br><br>
+	<div class="card text-white bg-warning mb-3">
+	<div class="card-header"><b>{{title2}}</b></div>
+
+	<div class="card-body">
+		<p id="cg2" class="card-text">{{synonyms |safe}}</p>
+	</div>
+	</div>
+</div> {% endcomment %}
+
+
+
+<div style="position:relative;">
+	<style>
+	#footer {
+            height: 40px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+</style>
+{% comment %} <footer id="footer" class="blockquote-footer text-white" >
+<!--	<nav aria-label="..." style = "position:relative;left:800px">-->
+<!--  <ul class="pagination">-->
+<!--    <li class="page-item disabled">-->
+<!--      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>-->
+<!--    </li>-->
+<!--	  <li class="page-item active" aria-current="page">-->
+<!--    <a class="page-link">1<span class="sr-only">(current)</span></a>-->
+<!--      </li>-->
+<!--      <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+<!--    <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--    <li class="page-item">-->
+<!--      <a class="page-link" href="#">Next</a>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</nav><br><br>-->
+</footer> {% endcomment %}
+	</div>
+</body>
+</html>
