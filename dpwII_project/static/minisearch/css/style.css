@@ -1,0 +1,24 @@
+<style>
+.searchresults{
+	width:300px;
+	margin:100px auto;
+	text-align:center;
+	overflow:hidden;
+}
+</style>
+{% if results %} 
+      <div class="txtCentrado margenSup20 grisDC"> 
+          <h3>We found {{ count }} result{{ count|pluralize }} for your
+search "<i>{{ search_term }}</i>", showing top hits according to TF-IDF 
+score: </h3> 
+	   </div> 
+	       <div class="searchresults" style="margin-right:auto;margin-left:auto;"> 
+	           {% for mytuple in results %} 
+			    <div class="images"> 
+		                <img src="{% static "img/p2.png" %}"width="20" height="20""hspace="5">{{ mytuple.0 }}  
+				    <img src="{% static "img/p3.png" %}"width="20" height="20""hspace="5">{{ mytuple.1 }} 				            
+			       </div>
+                  
+			       <p></p> 			         
+	              {% endfor %} 
+	           </div> 
